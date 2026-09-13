@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Long Asia - Client Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'la-bg-dark': '#0a1020',
+                        'la-bg-light': '#141e3a',
+                        'la-card': '#0f172a',
+                        'la-border': '#1e293b',
+                        'la-input': '#1e293b',
+                        'la-blue': '#3b82f6',
+                        'la-blue-hover': '#2563eb',
+                        'la-text-gray': '#94a3b8',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            /* Mimicking the radial/linear dark gradient from the image */
+            background: radial-gradient(circle at 50% 50%, #141e3a 0%, #080c17 100%);
+            color: #f8fafc;
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .glass-card {
+            background-color: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .fade-enter {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+        }
+        .fade-enter-active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Custom Logo Font Attempt */
+        .logo-font {
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.2em;
+        }
+        .logo-A {
+            /* Removing the crossbar of 'A' to match logo */
+            clip-path: polygon(50% 0%, 0% 100%, 20% 100%, 50% 30%, 80% 100%, 100% 100%);
+            display: inline-block;
+            background: white;
+            color: transparent;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- LOGIN VIEW -->
+    <div id="login-view" class="flex-1 flex flex-col items-center justify-center p-4 fade-enter fade-enter-active">
+        
+        <!-- Logo Header -->
+        <div class="flex items-center gap-4 mb-6">
+            <!-- SVG roughly matching the logo icon -->
+            <svg class="w-10 h-10 text-white" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 40V0L15 40H0Z" fill="white"/>
+                <path d="M20 40L35 0H20V40Z" fill="white"/>
+            </svg>
+            <div class="flex flex-col text-white logo-font font-bold text-xl leading-tight">
+                <span>LONG</span>
+                <span><span class="logo-A w-4 h-4 mr-0.5">A</span>S I <span class="logo-A w-4 h-4 ml-0.5">A</span></span>
+            </div>
+            
+            <!-- Flag -->
+            <div class="ml-12 border border-gray-600 rounded flex items-center p-1 bg-gray-800">
+                <img src="https://flagcdn.com/w20/us.png" width="20" alt="US Flag">
+            </div>
+        </div>
+
+        <!-- Login Card -->
+        <div class="glass-card w-full max-w-md rounded-2xl p-6 relative">
+            
+            <!-- Welcome Header inside card -->
+            <div class="bg-[#162035] rounded-xl p-4 flex items-center gap-4 mb-6 border border-gray-700">
+                <div class="bg-indigo-900/50 text-indigo-300 text-xs font-bold px-2 py-1 rounded border border-indigo-700">v2.0</div>
+                <div class="bg-gray-800 p-2 rounded-lg border border-gray-600">
+                    <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                </div>
+                <div>
+                    <h2 class="text-white font-semibold text-lg">Welcome Back</h2>
+                    <p class="text-la-text-gray text-xs">Enter your credentials to continue</p>
+                </div>
+            </div>
+
+            <form id="login-form" class="space-y-4">
+                
+                <div>
+                    <label class="block text-sm font-medium text-white mb-1.5">Login With</label>
+                    <div class="relative">
+                        <select class="w-full bg-la-input border border-gray-700 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-3 appearance-none">
+                            <option>Trade Account</option>
+                            <option>Email</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-400">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-white mb-1.5">Trade Account</label>
+                    <input type="text" id="accountId" class="w-full bg-la-input border border-gray-700 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-3 outline-none transition-colors" placeholder="Account ID">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-white mb-1.5">Password</label>
+                    <div class="relative">
+                        <!-- Setting type text to match the image where dots are visible but background is white -->
+                        <input type="password" id="password" class="w-full bg-white text-gray-900 text-lg tracking-widest rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-3 pr-10 outline-none">
+                        <button type="button" class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0l-3.29-3.29"></path></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between pt-1">
+                    <div class="flex items-center">
+                        <input type="checkbox" checked id="remember" class="w-4 h-4 text-blue-600 bg-gray-700 border-gray-600 rounded focus:ring-blue-500 focus:ring-2">
+                        <label for="remember" class="ml-2 text-xs font-medium text-gray-300">Save Login Info</label>
+                    </div>
+                    <a href="#" class="text-xs text-gray-300 hover:text-white">Forgot Password?</a>
+                </div>
+
+                <div id="login-error" class="text-red-500 text-xs hidden text-center">Invalid credentials. Use provided ID and Password.</div>
+
+                <button type="submit" class="w-full text-white bg-la-blue hover:bg-la-blue-hover focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-3 text-center transition-colors mt-4">
+                    Login
+                </button>
+            </form>
+            
+            <div class="mt-6 border-t border-gray-700 pt-4 flex flex-col items-center space-y-3">
+                <div class="flex gap-4 text-gray-400 text-xs">
+                    <a href="#" class="hover:text-white flex items-center gap-1"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg> P2P</a>
+                    <span>|</span>
+                    <a href="#" class="hover:text-white flex items-center gap-1"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg> Support</a>
+                </div>
+                <a href="#" class="text-gray-300 hover:text-white text-xs">Lost access to your lasiamail email?</a>
+                
+                <div class="w-full flex justify-between items-center text-xs text-gray-400 mt-2">
+                    <span>Haven't registered yet ?</span>
+                    <a href="#" class="text-la-blue hover:text-blue-400 font-medium">Sign Up Now</a>
+                </div>
+                <p class="text-[10px] text-gray-500 text-center w-full mt-2">
+                    By continuing, you agree to our <a href="#" class="underline">Terms of Service</a> and <a href="#" class="underline">Privacy Policy</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- DASHBOARD VIEW (Hidden initially) -->
+    <div id="dashboard-view" class="hidden flex-1 flex-col w-full max-w-5xl mx-auto p-4 sm:p-8">
+        
+        <!-- Dashboard Header -->
+        <header class="flex justify-between items-center mb-8 border-b border-gray-700 pb-4">
+             <div class="flex items-center gap-3">
+                <svg class="w-8 h-8 text-white" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 40V0L15 40H0Z" fill="white"/>
+                    <path d="M20 40L35 0H20V40Z" fill="white"/>
+                </svg>
+                <div class="flex flex-col text-white logo-font font-bold text-lg leading-tight">
+                    <span>LONG ASIA</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="text-sm text-gray-400">Account: <span class="text-white font-mono" id="display-acc">36101748</span></span>
+                <button onclick="logout()" class="text-xs bg-gray-800 hover:bg-gray-700 text-white px-3 py-1.5 rounded border border-gray-600 transition-colors">Logout</button>
+            </div>
+        </header>
+
+        <main class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Left Column: Apology & Info -->
+            <div class="lg:col-span-2 space-y-6">
+                
+                <div class="glass-card rounded-2xl p-6 sm:p-8 border-l-4 border-red-500">
+                    <h1 class="text-2xl sm:text-3xl font-bold text-white mb-4">Official Fund Repatriation Portal</h1>
+                    
+                    <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center gap-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                        A Sincere Apology to Our Investors
+                    </h3>
+                    
+                    <div class="space-y-4 text-gray-300 text-sm leading-relaxed">
+                        <p>
+                            We deeply regret to inform you that despite our best operational efforts, we could not secure the funds of our investors as intended during the recent unprecedented market volatility. As we have continually communicated in our risk disclosures, <strong>trading in financial markets involves substantial risk of loss</strong>.
+                        </p>
+                        <p>
+                            We understand the frustration and disappointment this causes. We take full responsibility for the failure in our risk management protocols. We value the immense trust you placed in Long Asia Group, and as a testament to our commitment to making things right, we are initiating a comprehensive refund process for remaining capital.
+                        </p>
+                        <p class="text-white font-medium p-4 bg-gray-800/50 rounded-lg border border-gray-700">
+                            We are committed to refunding the eligible remaining capital of every investor who trusted us. Your eligible payout is calculated strictly based on your ledger history.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Refund Process Details -->
+                <div class="glass-card rounded-xl p-6">
+                    <h4 class="text-white font-semibold mb-4">How Your Refund is Calculated</h4>
+                    <div class="bg-la-input border border-gray-700 rounded-lg p-4 font-mono text-sm text-center mb-4 text-blue-300">
+                        Total Deposit - Total Withdrawal = Eligible Payout
+                    </div>
+                    <p class="text-xs text-gray-400">
+                        *Note: Total Lost Capital (trading losses) is not factored into the refund equation. The refund strictly ensures you recover your net un-withdrawn deposits.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right Column: Financial Data -->
+            <div class="space-y-4">
+                
+                <h2 class="text-xl font-bold text-white mb-2">Your Ledger Summary</h2>
+                
+                <!-- Total Deposit -->
+                <div class="glass-card rounded-xl border border-gray-700 hover:border-gray-500 transition-colors overflow-hidden">
+                    <div class="p-5">
+                        <div class="text-gray-400 text-xs uppercase tracking-wider mb-1">Total Deposit Amount</div>
+                        <div class="text-2xl font-bold text-white font-mono">$15,450.00</div>
+                    </div>
+                    <div class="bg-gray-800/50 border-t border-gray-700 p-3">
+                        <details class="text-xs text-gray-300 group">
+                            <summary class="cursor-pointer font-medium hover:text-white flex items-center gap-1">
+                                View Deposit History
+                                <svg class="w-3 h-3 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </summary>
+                            <div class="mt-3 space-y-2 pl-2 border-l-2 border-gray-600">
+                                <div class="flex justify-between border-b border-gray-700/50 pb-1">
+                                    <span class="text-gray-400">12 Aug 2026</span>
+                                    <span class="font-mono text-green-400">+$5,000.00</span>
+                                </div>
+                                <div class="flex justify-between border-b border-gray-700/50 pb-1">
+                                    <span class="text-gray-400">25 Aug 2026</span>
+                                    <span class="font-mono text-green-400">+$10,450.00</span>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Total Withdrawal -->
+                <div class="glass-card rounded-xl border border-gray-700 hover:border-gray-500 transition-colors overflow-hidden">
+                    <div class="p-5">
+                        <div class="text-gray-400 text-xs uppercase tracking-wider mb-1">Total Withdrawal Amount</div>
+                        <div class="text-2xl font-bold text-white font-mono">$2,200.00</div>
+                    </div>
+                    <div class="bg-gray-800/50 border-t border-gray-700 p-3">
+                        <details class="text-xs text-gray-300 group">
+                            <summary class="cursor-pointer font-medium hover:text-white flex items-center gap-1">
+                                View Withdrawal History
+                                <svg class="w-3 h-3 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </summary>
+                            <div class="mt-3 space-y-2 pl-2 border-l-2 border-gray-600">
+                                <div class="flex justify-between border-b border-gray-700/50 pb-1">
+                                    <span class="text-gray-400">01 Sep 2026</span>
+                                    <span class="font-mono text-red-400">-$2,200.00</span>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Total Lost Capital -->
+                <div class="glass-card rounded-xl border border-red-900/50 bg-red-900/10 overflow-hidden">
+                    <div class="p-5">
+                        <div class="text-red-400/80 text-xs uppercase tracking-wider mb-1">Total Lost Capital (Trading)</div>
+                        <div class="text-xl font-bold text-red-400 font-mono">-$15,450.00 (Total Loss)</div>
+                        <p class="text-[10px] text-red-300/70 mt-1 leading-tight">Due to severe market volatility, the entirety of the invested capital was lost in trading operations.</p>
+                    </div>
+                    <div class="bg-red-950/30 border-t border-red-900/30 p-3">
+                         <details class="text-xs text-red-300/80 group">
+                            <summary class="cursor-pointer font-medium hover:text-red-200 flex items-center gap-1">
+                                View Loss Event Log
+                                <svg class="w-3 h-3 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </summary>
+                            <div class="mt-3 space-y-2 pl-2 border-l-2 border-red-800/50">
+                                <div class="flex justify-between border-b border-red-900/30 pb-1">
+                                    <span class="text-red-400">18 Sep 2026</span>
+                                    <span class="font-mono font-bold text-red-500">System Margin Call / Liquidation</span>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Remaining Capital to be paid -->
+                <div class="glass-card rounded-xl mt-6 border-2 border-blue-500 bg-blue-900/20 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-2 opacity-10">
+                        <svg class="w-24 h-24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.91s4.18 1.39 4.18 3.91c-.01 1.83-1.38 2.83-3.12 3.16z"></path></svg>
+                    </div>
+                    <div class="relative z-10 p-6">
+                        <div class="text-blue-300 text-sm uppercase tracking-wider font-semibold mb-2">Remaining Capital to be Paid</div>
+                        <div class="text-4xl font-extrabold text-white font-mono mb-2 shadow-sm">$13,250.00</div>
+                        <p class="text-[10px] text-blue-200/70 leading-tight mb-4">This is the net amount (Deposit - Withdrawal) scheduled for processing to your original payment method, irrespective of trading losses.</p>
+                        
+                        <div class="bg-[#0a1020]/80 rounded border border-blue-800 p-3">
+                            <div class="text-xs font-semibold text-blue-400 mb-2 border-b border-blue-900 pb-1">Committed Payout Schedule (4 Installments)</div>
+                            <ul class="text-[11px] text-gray-300 space-y-1.5 font-mono">
+                                <li class="flex justify-between"><span>Part 1 (25%):</span> <span class="text-white">Oct 25, 2026</span></li>
+                                <li class="flex justify-between"><span>Part 2 (25%):</span> <span class="text-white">Dec 01, 2026</span></li>
+                                <li class="flex justify-between"><span>Part 3 (25%):</span> <span class="text-white">Jan 15, 2027</span></li>
+                                <li class="flex justify-between"><span>Part 4 (Final):</span> <span class="text-white">Mar 13, 2027</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <button onclick="requestProcessing()" id="process-btn" class="w-full mt-4 bg-white text-la-bg-dark hover:bg-gray-200 font-bold py-4 rounded-xl shadow-lg transition-all duration-200 transform hover:scale-[1.02]">
+                    Acknowledge & Request Payout
+                </button>
+
+                <div id="process-success" class="hidden mt-4 bg-green-900/30 border border-green-500 text-green-300 p-4 rounded-xl text-center text-sm font-medium">
+                    Request submitted. Processing time: 5-7 business days.
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginForm = document.getElementById('login-form');
+            const loginView = document.getElementById('login-view');
+            const dashboardView = document.getElementById('dashboard-view');
+            const loginError = document.getElementById('login-error');
+            const accountInput = document.getElementById('accountId');
+            const passwordInput = document.getElementById('password');
+            const displayAcc = document.getElementById('display-acc');
+
+            loginForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const acc = accountInput.value.trim();
+                const pass = passwordInput.value;
+
+                // Check against required credentials
+                if (acc === '36101748' && pass === 'Abhishek@2026') {
+                    // Success: Transition to dashboard
+                    loginError.classList.add('hidden');
+                    
+                    // Fade out login
+                    loginView.style.opacity = '0';
+                    loginView.style.transform = 'translateY(-10px)';
+                    loginView.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                    
+                    setTimeout(() => {
+                        loginView.classList.add('hidden');
+                        loginView.classList.remove('flex');
+                        
+                        // Set data
+                        displayAcc.textContent = acc;
+
+                        // Show dashboard
+                        dashboardView.classList.remove('hidden');
+                        dashboardView.classList.add('flex');
+                        
+                        // Trigger reflow for animation
+                        void dashboardView.offsetWidth;
+                        
+                        dashboardView.classList.add('fade-enter');
+                        setTimeout(() => {
+                            dashboardView.classList.add('fade-enter-active');
+                        }, 50);
+
+                    }, 400);
+
+                } else {
+                    // Show error
+                    loginError.classList.remove('hidden');
+                    // Shake animation
+                    loginForm.classList.add('transform', 'translate-x-2');
+                    setTimeout(() => loginForm.classList.replace('translate-x-2', '-translate-x-2'), 100);
+                    setTimeout(() => loginForm.classList.replace('-translate-x-2', 'translate-x-2'), 200);
+                    setTimeout(() => loginForm.classList.remove('transform', 'translate-x-2'), 300);
+                }
+            });
+        });
+
+        function logout() {
+            location.reload(); // Simple reload to reset state
+        }
+
+        function requestProcessing() {
+            const btn = document.getElementById('process-btn');
+            const success = document.getElementById('process-success');
+            
+            btn.innerHTML = `
+                <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-la-bg-dark inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Processing...
+            `;
+            btn.disabled = true;
+            btn.classList.add('opacity-75', 'cursor-not-allowed');
+
+            setTimeout(() => {
+                btn.classList.add('hidden');
+                success.classList.remove('hidden');
+                success.classList.add('fade-enter', 'fade-enter-active');
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
