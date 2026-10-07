@@ -192,6 +192,19 @@
             border-bottom: 1px solid #1e293b;
             background-color: #0a101d;
         }
+
+        /* Mobile specific adjustments to reduce congestion */
+        @media (max-width: 768px) {
+            html { font-size: 13.5px; } /* Scales down all rem-based sizes (text, padding, margins) globally */
+            .sidebar-item { padding: 10px 12px; font-size: 0.75rem; }
+            .la-label { font-size: 0.55rem; margin-bottom: 0.35rem; }
+            .la-input-dark { padding: 0.5rem 0.75rem; font-size: 0.75rem; }
+            .glass-card { padding: 1.15rem !important; }
+            .la-table th, .la-table td { padding: 0.75rem !important; }
+            
+            /* Tweak ticker font size specifically */
+            .ticker-wrap { font-size: 10px !important; }
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -434,10 +447,10 @@
         <main class="flex-1 flex flex-col h-full bg-[#050b14] w-full overflow-hidden">
             
             <!-- TOP NAVBAR -->
-            <header class="h-16 flex items-center justify-between px-4 md:px-6 border-b border-gray-800 bg-[#0a101d]">
-                <div class="flex items-center gap-3 md:gap-6">
+            <header class="h-14 md:h-16 flex items-center justify-between px-3 md:px-6 border-b border-gray-800 bg-[#0a101d]">
+                <div class="flex items-center gap-2 md:gap-6">
                     <button class="md:hidden text-gray-400 hover:text-white p-1" onclick="toggleSidebar()">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                        <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                     </button>
                     <div class="hidden sm:flex text-xs text-gray-400 bg-[#1e293b] px-3 py-1.5 rounded-full items-center gap-2 border border-gray-700">
                         <span class="font-medium text-blue-400">USDT</span>
@@ -447,44 +460,44 @@
                     </div>
                 </div>
 
-                <div class="flex items-center gap-3 md:gap-5">
+                <div class="flex items-center gap-2 md:gap-5">
                     <!-- Notifications -->
                     <div class="relative cursor-pointer">
-                        <svg class="w-5 h-5 text-gray-400 hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
-                        <span class="absolute -top-1.5 -right-1.5 bg-red-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full border-2 border-[#0a101d]">33</span>
+                        <svg class="w-4 h-4 md:w-5 md:h-5 text-gray-400 hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                        <span class="absolute -top-1.5 -right-1.5 bg-red-500 text-white text-[8px] md:text-[9px] font-bold px-1 md:px-1.5 py-0.5 rounded-full border-2 border-[#0a101d]">33</span>
                     </div>
                     
                     <!-- IB Icon -->
-                    <div class="bg-indigo-900/40 text-indigo-300 border border-indigo-800 rounded px-2 py-1 flex items-center gap-1 cursor-pointer hover:bg-indigo-900/60 transition-colors">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
-                        <span class="text-xs font-semibold hidden md:inline">IB</span>
+                    <div class="bg-indigo-900/40 text-indigo-300 border border-indigo-800 rounded px-1.5 md:px-2 py-1 flex items-center gap-1 cursor-pointer hover:bg-indigo-900/60 transition-colors">
+                        <svg class="w-3.5 h-3.5 md:w-4 md:h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                        <span class="text-[10px] md:text-xs font-semibold hidden md:inline">IB</span>
                     </div>
 
                     <!-- User Profile Dropdown -->
-                    <div class="flex items-center gap-1.5 md:gap-2 cursor-pointer hover:text-gray-300 transition-colors border-l border-gray-700 pl-3 md:pl-4">
-                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                    <div class="flex items-center gap-1 md:gap-2 cursor-pointer hover:text-gray-300 transition-colors border-l border-gray-700 pl-2 md:pl-4">
+                        <svg class="w-4 h-4 md:w-5 md:h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                         <span class="hidden md:block text-sm font-medium whitespace-nowrap overflow-hidden text-ellipsis max-w-[100px] lg:max-w-none" id="header-user-name">Sanjay Ramesh keshrwani</span>
-                        <svg class="w-4 h-4 text-gray-500 hidden md:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path></svg>
+                        <svg class="w-3 h-3 md:w-4 md:h-4 text-gray-500 hidden md:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path></svg>
                     </div>
 
                     <!-- Language & Fullscreen -->
-                    <div class="flex items-center gap-2 md:gap-3 border-l border-gray-700 pl-3 md:pl-4">
-                        <img src="https://flagcdn.com/w20/us.png" class="w-5 rounded-sm cursor-pointer opacity-80 hover:opacity-100" alt="EN">
-                        <svg class="w-5 h-5 text-gray-500 hover:text-gray-300 cursor-pointer hidden md:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path></svg>
+                    <div class="flex items-center gap-2 md:gap-3 border-l border-gray-700 pl-2 md:pl-4">
+                        <img src="https://flagcdn.com/w20/us.png" class="w-4 md:w-5 rounded-sm cursor-pointer opacity-80 hover:opacity-100" alt="EN">
+                        <svg class="w-4 h-4 md:w-5 md:h-5 text-gray-500 hover:text-gray-300 cursor-pointer hidden md:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path></svg>
                     </div>
                 </div>
             </header>
 
             <!-- CONTENT AREA -->
-            <div class="flex-1 overflow-y-auto p-6 md:p-8 custom-scrollbar relative">
+            <div class="flex-1 overflow-y-auto p-3 md:p-8 custom-scrollbar relative">
                 
                 <!-- VIEW: MAIN DASHBOARD -->
-                <div id="view-dashboard" class="content-view active max-w-7xl mx-auto space-y-6">
+                <div id="view-dashboard" class="content-view active max-w-7xl mx-auto space-y-4 md:space-y-6">
                     
                     <!-- Welcome & Status -->
-                    <div class="flex justify-between items-end mb-2">
-                        <h1 class="text-xl font-bold">Hi <span class="text-blue-400" id="main-user-name">Sanjay Ramesh keshrwani</span></h1>
-                        <div class="flex items-center gap-1.5 text-xs font-medium text-green-400 bg-green-900/20 border border-green-800/50 px-2.5 py-1 rounded-full">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-3 mb-2">
+                        <h1 class="text-lg md:text-xl font-bold">Hi <span class="text-blue-400" id="main-user-name">Sanjay Ramesh keshrwani</span></h1>
+                        <div class="flex items-center gap-1.5 text-[10px] md:text-xs font-medium text-green-400 bg-green-900/20 border border-green-800/50 px-2.5 py-1 rounded-full">
                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             Document Status: Verified
                         </div>
@@ -507,27 +520,27 @@
                     </div>
 
                     <!-- Layout Grid for Cards -->
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
                         
                         <!-- Left Column (Wider) -->
-                        <div class="lg:col-span-2 space-y-6">
+                        <div class="lg:col-span-2 space-y-4 md:space-y-6">
                             
                             <!-- Total Balance Card -->
                             <div class="glass-card p-6 relative overflow-hidden">
                                 <!-- Background Glow -->
                                 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
                                 
-                                <div class="flex justify-between items-start mb-8 relative z-10">
-                                    <div class="flex items-center gap-4">
-                                        <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-500/20">
-                                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
+                                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 md:mb-8 relative z-10">
+                                    <div class="flex items-center gap-3 md:gap-4">
+                                        <div class="w-10 h-10 md:w-12 md:h-12 bg-blue-500 rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-500/20">
+                                            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
                                         </div>
                                         <div>
-                                            <div class="text-2xl font-bold text-white" id="dash-total-balance">$6,677.18</div>
-                                            <div class="text-xs text-gray-400 mt-0.5">Total Balance</div>
+                                            <div class="text-xl md:text-2xl font-bold text-white" id="dash-total-balance">$6,677.18</div>
+                                            <div class="text-[10px] md:text-xs text-gray-400 mt-0.5">Total Balance</div>
                                         </div>
                                     </div>
-                                    <button class="bg-indigo-500 hover:bg-indigo-400 text-white text-xs font-medium px-4 py-2 rounded-lg flex items-center gap-1.5 transition-colors shadow-lg shadow-indigo-500/20">
+                                    <button class="bg-indigo-500 hover:bg-indigo-400 text-white text-[10px] md:text-xs font-medium px-4 py-2 rounded-lg flex items-center gap-1.5 transition-colors shadow-lg shadow-indigo-500/20">
                                         Deposit Now! <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                                     </button>
                                 </div>
@@ -843,21 +856,21 @@
                 </div>
 
                 <!-- VIEW: WITHDRAWAL -->
-                <div id="view-withdrawal" class="content-view max-w-7xl mx-auto space-y-6">
-                    <div class="glass-card p-6 flex justify-between items-center border-b border-[#1e293b]">
+                <div id="view-withdrawal" class="content-view max-w-7xl mx-auto space-y-4 md:space-y-6">
+                    <div class="glass-card p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-[#1e293b]">
                         <div>
-                            <div class="inline-block border border-[#1e293b] rounded-full px-3 py-1 text-[10px] font-semibold text-gray-400 mb-2 bg-[#0a101d]">FUND CENTER</div>
-                            <h2 class="text-2xl font-bold text-white mb-1">Withdraw Funds</h2>
-                            <p class="text-sm text-gray-400">Submit payout requests from wallet or trading source with a cleaner, guided flow.</p>
+                            <div class="inline-block border border-[#1e293b] rounded-full px-3 py-1 text-[9px] md:text-[10px] font-semibold text-gray-400 mb-2 bg-[#0a101d]">FUND CENTER</div>
+                            <h2 class="text-xl md:text-2xl font-bold text-white mb-1">Withdraw Funds</h2>
+                            <p class="text-xs md:text-sm text-gray-400">Submit payout requests from wallet or trading source with a cleaner, guided flow.</p>
                         </div>
-                        <div class="flex gap-4">
-                            <div class="bg-[#0f1522] border border-[#1e293b] rounded-xl p-3 w-32">
-                                <div class="text-[10px] font-bold text-gray-500 mb-1">AVAILABLE</div>
-                                <div class="text-lg font-bold text-white" id="wd-header-avail">$0.00</div>
+                        <div class="flex gap-3 md:gap-4 w-full md:w-auto">
+                            <div class="bg-[#0f1522] border border-[#1e293b] rounded-xl p-2.5 md:p-3 flex-1 md:w-32">
+                                <div class="text-[9px] md:text-[10px] font-bold text-gray-500 mb-1">AVAILABLE</div>
+                                <div class="text-base md:text-lg font-bold text-white" id="wd-header-avail">$0.00</div>
                             </div>
-                            <div class="bg-[#0f1522] border border-[#1e293b] rounded-xl p-3 w-32">
-                                <div class="text-[10px] font-bold text-gray-500 mb-1">METHODS</div>
-                                <div class="text-lg font-bold text-white">1</div>
+                            <div class="bg-[#0f1522] border border-[#1e293b] rounded-xl p-2.5 md:p-3 flex-1 md:w-32">
+                                <div class="text-[9px] md:text-[10px] font-bold text-gray-500 mb-1">METHODS</div>
+                                <div class="text-base md:text-lg font-bold text-white">1</div>
                             </div>
                         </div>
                     </div>
