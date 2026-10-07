@@ -508,7 +508,7 @@
                                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
                                         </div>
                                         <div>
-                                            <div class="text-2xl font-bold text-white">$6,677.18</div>
+                                            <div class="text-2xl font-bold text-white" id="dash-total-balance">$6,677.18</div>
                                             <div class="text-xs text-gray-400 mt-0.5">Total Balance</div>
                                         </div>
                                     </div>
@@ -520,11 +520,11 @@
                                 <div class="grid grid-cols-3 gap-4 relative z-10">
                                     <div class="bg-[#151c2c] p-3 rounded-lg border border-gray-800/50">
                                         <div class="text-[10px] text-gray-500 uppercase tracking-wider mb-1">MT5</div>
-                                        <div class="text-sm font-semibold text-white">$2,033.80</div>
+                                        <div class="text-sm font-semibold text-white" id="dash-mt5-balance">$2,033.80</div>
                                     </div>
                                     <div class="bg-[#151c2c] p-3 rounded-lg border border-gray-800/50">
                                         <div class="text-[10px] text-gray-500 uppercase tracking-wider mb-1">CREDIT</div>
-                                        <div class="text-sm font-semibold text-white">$4,643.38</div>
+                                        <div class="text-sm font-semibold text-white" id="dash-credit-balance">$4,643.38</div>
                                     </div>
                                     <div class="bg-[#151c2c] p-3 rounded-lg border border-gray-800/50">
                                         <div class="text-[10px] text-gray-500 uppercase tracking-wider mb-1">WALLET</div>
@@ -559,13 +559,13 @@
                                             <tr class="hover:bg-[#151c2c]/50 transition-colors">
                                                 <td class="px-5 py-4 font-medium text-white flex items-center gap-2">
                                                     <div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
-                                                    36131339
+                                                    <span id="table-account-id">36131339</span>
                                                 </td>
                                                 <td class="px-5 py-4 text-center">
-                                                    <span class="bg-[#1e293b] px-3 py-1 rounded text-white">$2,033.80</span>
+                                                    <span class="bg-[#1e293b] px-3 py-1 rounded text-white" id="table-mt5-balance">$2,033.80</span>
                                                 </td>
                                                 <td class="px-5 py-4 text-center">
-                                                    <span class="bg-[#1e293b] px-3 py-1 rounded text-white border border-green-900/30">$4,643.38</span>
+                                                    <span class="bg-[#1e293b] px-3 py-1 rounded text-white border border-green-900/30" id="table-credit-balance">$4,643.38</span>
                                                 </td>
                                                 <td class="px-5 py-4 text-center">
                                                     <span class="bg-green-900/20 text-green-400 border border-green-800/50 px-2 py-0.5 rounded text-[10px]">MT5</span>
@@ -585,7 +585,7 @@
                                     
                                     <div class="flex items-center gap-4">
                                         <div class="w-20 flex-shrink-0 text-xs text-gray-400 border border-gray-700 bg-[#151c2c] rounded py-2 px-3 text-center">USDTpro</div>
-                                        <input type="text" value="0x6266867b9e99fa0fde64ba2e22a0aadaba6d9119" readonly class="flex-1 bg-[#151c2c] border border-gray-700 text-gray-300 text-xs rounded block p-2.5 outline-none font-mono">
+                                        <input type="text" id="dash-wallet-address" value="0x6266867b9e99fa0fde64ba2e22a0aadaba6d9119" readonly class="flex-1 bg-[#151c2c] border border-gray-700 text-gray-300 text-xs rounded block p-2.5 outline-none font-mono">
                                         <button class="bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-400 border border-indigo-500/30 text-xs px-4 py-2 rounded transition-colors">Edit</button>
                                     </div>
 
@@ -613,7 +613,7 @@
                                     <div>
                                         <div class="text-[10px] text-gray-400 uppercase tracking-wider font-semibold mb-1">REFERRAL CODE</div>
                                         <div class="flex items-center gap-3">
-                                            <span class="text-xl font-bold text-blue-400 font-mono">*******4598</span>
+                                            <span class="text-xl font-bold text-blue-400 font-mono" id="dash-ref-code">*******4598</span>
                                             <div class="flex gap-1.5">
                                                 <button class="p-1 text-gray-400 hover:text-white border border-gray-700 rounded bg-[#0f1522]" title="Show">
                                                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
@@ -637,7 +637,7 @@
                                             <div class="absolute inset-y-0 left-0 pl-2.5 flex items-center pointer-events-none">
                                                 <svg class="w-3.5 h-3.5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
                                             </div>
-                                            <input type="text" value="https://login.longasiagroup.com/ref/4598" readonly class="w-full bg-[#0a101d] border border-gray-700 text-gray-400 text-[11px] rounded py-2 pl-8 pr-2 outline-none text-ellipsis overflow-hidden">
+                                            <input type="text" id="dash-ref-link" value="https://login.longasiagroup.com/ref/4598" readonly class="w-full bg-[#0a101d] border border-gray-700 text-gray-400 text-[11px] rounded py-2 pl-8 pr-2 outline-none text-ellipsis overflow-hidden">
                                         </div>
                                         <button class="bg-blue-500 hover:bg-blue-400 text-white text-[11px] px-3 py-1.5 rounded flex items-center gap-1.5 transition-colors">
                                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
@@ -663,7 +663,7 @@
                                 
                                 <!-- QR Code Placeholder -->
                                 <div class="mt-6 flex justify-center bg-white p-2 w-24 mx-auto rounded">
-                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://login.longasiagroup.com/ref/4598" alt="QR Code" class="w-full h-full">
+                                    <img id="qr-code-img" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://login.longasiagroup.com/ref/4598" alt="QR Code" class="w-full h-full">
                                 </div>
 
                             </div>
@@ -838,7 +838,7 @@
                         <div class="flex gap-4">
                             <div class="bg-[#0f1522] border border-[#1e293b] rounded-xl p-3 w-32">
                                 <div class="text-[10px] font-bold text-gray-500 mb-1">AVAILABLE</div>
-                                <div class="text-lg font-bold text-white">$0.00</div>
+                                <div class="text-lg font-bold text-white" id="wd-header-avail">$0.00</div>
                             </div>
                             <div class="bg-[#0f1522] border border-[#1e293b] rounded-xl p-3 w-32">
                                 <div class="text-[10px] font-bold text-gray-500 mb-1">METHODS</div>
@@ -854,7 +854,7 @@
                             USDT BEP-20 and USDT TRC-20 are currently switched off for ordinary trading accounts. Withdrawals from an ordinary trading account are paid in USDTPro BEP-20, which is encashed through the P2P portal with a local money changer.
                         </p>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                             <div>
                                 <label class="la-label">WITHDRAWAL METHOD</label>
                                 <div class="la-input-dark flex items-center justify-between opacity-70 cursor-not-allowed">
@@ -863,52 +863,56 @@
                             </div>
                             <div>
                                 <label class="la-label">SELECT TRADE ACCOUNT</label>
-                                <select class="la-input-dark appearance-none">
+                                <select class="la-input-dark appearance-none" id="wd-account-select">
                                     <option>Select account</option>
-                                    <option>36131339 - MT5</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="la-label">AVAILABLE BALANCE</label>
+                                <input type="text" id="wd-avail-bal-1" value="0.00" readonly class="la-input-dark opacity-70 cursor-not-allowed text-gray-400">
+                            </div>
+                            <div>
+                                <label class="la-label">SELECT WITHDRAWAL METHOD</label>
+                                <div class="la-input-dark flex items-center justify-between opacity-70 cursor-not-allowed">
+                                    <span>USDTPro BEP 20</span>
+                                </div>
+                            </div>
+                            
+                            <div id="wd-special-abhishek" class="md:col-span-2 hidden">
+                                <label class="la-label text-indigo-400">PROCESSING TYPE</label>
+                                <select class="la-input-dark appearance-none border-indigo-500 text-indigo-200 focus:ring-indigo-500" id="wd-processing-type">
+                                    <option value="regular">Regular Withdrawal (Unavailable for 6 Months)</option>
+                                    <option value="urgent">Instant / Urgent Withdrawal (30% Processing Fee)</option>
                                 </select>
                             </div>
                         </div>
-                        
-                        <div class="border-t border-[#1e293b] pt-6 space-y-6">
-                            
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div>
-                                    <label class="la-label">AVAILABLE BALANCE</label>
-                                    <input type="text" value="$0.00" readonly class="la-input-dark opacity-70 cursor-not-allowed text-gray-400">
-                                </div>
-                                <div>
-                                    <label class="la-label">SELECT WITHDRAWAL METHOD</label>
-                                    <div class="la-input-dark flex items-center justify-between opacity-70 cursor-not-allowed">
-                                        <span>USDTPro BEP 20</span>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="border border-[#1e293b] rounded-lg p-5 bg-[#0f1522] space-y-4">
-                                <p class="text-xs text-gray-300 leading-relaxed">
-                                    USDTPro BEP-20 is the withdrawal method currently available for ordinary trading accounts. It is encashed through the P2P portal with a local money changer.
-                                </p>
-                                <div class="text-xs text-gray-400 space-y-1">
-                                    <p class="italic font-semibold text-gray-300">Fee : 0%</p>
-                                    <p class="italic">Minimum Withdrawal: $1</p>
-                                    <p class="italic">Minimum Fee : $0</p>
-                                    <p class="italic">Maximum withdrawal allowed for this method: $50000</p>
-                                </div>
+                        <div class="border border-[#1e293b] rounded-lg p-5 bg-[#0f1522] space-y-4 mb-6">
+                            <p class="text-xs text-gray-300 leading-relaxed">
+                                USDTPro BEP-20 is the withdrawal method currently available for ordinary trading accounts. It is encashed through the P2P portal with a local money changer.
+                            </p>
+                            <div class="text-xs text-gray-400 space-y-1">
+                                <p class="italic font-semibold text-gray-300" id="wd-fee-display">Fee : 0%</p>
+                                <p class="italic">Minimum Withdrawal: $1</p>
+                                <p class="italic">Minimum Fee : $0</p>
+                                <p class="italic">Maximum withdrawal allowed for this method: $50000</p>
                             </div>
+                        </div>
 
+                        <div class="space-y-6">
                             <div>
                                 <label class="la-label flex items-center gap-1">
                                     AVAILABLE WITHDRAWAL AMOUNT 
                                     <svg class="w-3.5 h-3.5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                 </label>
-                                <input type="text" value="0.00" readonly class="la-input-dark w-1/2 opacity-70 cursor-not-allowed text-gray-400">
+                                <input type="text" id="wd-avail-bal-2" value="0.00" readonly class="la-input-dark w-1/2 opacity-70 cursor-not-allowed text-gray-400">
                             </div>
 
                             <div>
                                 <label class="la-label">AMOUNT</label>
-                                <input type="number" class="la-input-dark w-1/2 focus:border-indigo-500 transition-colors" placeholder="">
-                                <p class="text-[10px] text-gray-500 mt-1">Maximum allowed for you today is $0.00</p>
+                                <input type="number" id="wd-amount" class="la-input-dark w-1/2 focus:border-indigo-500 transition-colors border-indigo-900/50" placeholder="">
+                                <p class="text-[10px] text-gray-500 mt-1" id="wd-max-allowed">Maximum allowed for you today is $0.00</p>
                             </div>
 
                             <div>
@@ -916,12 +920,12 @@
                                     FINAL AMOUNT IN (AMOUNT - FEE) * CONVERSION RATE<br>
                                     <span class="text-gray-500">(CONVERSION RATE:1)</span>
                                 </label>
-                                <input type="text" value="0.00" readonly class="la-input-dark w-1/2 opacity-70 cursor-not-allowed text-gray-400">
+                                <input type="text" id="wd-final-amount" value="0.00" readonly class="la-input-dark w-1/2 opacity-70 cursor-not-allowed text-gray-400 font-bold">
                             </div>
 
                             <div>
                                 <label class="la-label">USDTpro BEP-20 Address</label>
-                                <input type="text" value="0x6266867b9e99fa0fde64ba2e22a0aadaba6d9119" readonly class="la-input-dark w-full opacity-70 cursor-not-allowed text-gray-400 font-mono text-[11px]">
+                                <input type="text" id="wd-address" value="" readonly class="la-input-dark w-full opacity-70 cursor-not-allowed text-gray-400 font-mono text-[11px]">
                             </div>
 
                             <div>
@@ -930,12 +934,12 @@
                             </div>
 
                             <div class="flex items-center gap-2 pt-2">
-                                <input type="checkbox" id="agree-third-party" class="w-4 h-4 text-indigo-600 bg-gray-700 border-gray-600 rounded focus:ring-indigo-500">
+                                <input type="checkbox" id="agree-third-party" class="w-4 h-4 text-indigo-600 bg-[#0f1522] border-[#1e293b] rounded focus:ring-indigo-500">
                                 <label for="agree-third-party" class="text-[10px] font-bold text-gray-300 uppercase">I AGREE THAT LONG AISA DOES NOT PROCESS ANY THIRD PARTY WITHDRAWALS</label>
                             </div>
 
                             <div class="pt-4">
-                                <button class="bg-[#818cf8] hover:bg-[#6366f1] text-white font-medium px-8 py-2.5 rounded-lg transition-colors">
+                                <button type="button" id="wd-submit-btn" class="bg-[#818cf8] hover:bg-[#6366f1] text-white font-medium px-8 py-2.5 rounded-lg transition-colors opacity-50 cursor-not-allowed" disabled>
                                     Submit Request
                                 </button>
                             </div>
@@ -1138,6 +1142,35 @@
         const langDropdownContainer = document.getElementById('lang-dropdown-container');
 
         let currentLang = 'en';
+        let currentUser = null; // Store active user details
+
+        // Database for requested specific users
+        const usersDB = {
+            '36101748': {
+                name: 'Abhishek Bisht',
+                pass: 'Abhishek@2026',
+                account: '36101748',
+                mt5: '47,584.00',
+                mt5Raw: 47584.00,
+                credit: '31,478.00',
+                total: '79,062.00',
+                wallet: '0x6266867b9e99fa0fde64ba2e22a0aadaba6d9119',
+                ref: '4598',
+                specialRules: true // Triggers the 30% fee option
+            },
+            '36128132': {
+                name: 'Tushar Bairagi',
+                pass: 'Tushar@2026',
+                account: '36128132',
+                mt5: '347.06',
+                mt5Raw: 347.06,
+                credit: '774.48',
+                total: '1,121.54',
+                wallet: '0x3eb19ba459c44e979d66fd98e8e93e4f43542123',
+                ref: '1795',
+                specialRules: false
+            }
+        };
 
         const translations = {
             'en': {
@@ -1151,7 +1184,7 @@
                 'accountIdPh': '',
                 'saveLogin': 'Save Login Info',
                 'forgotPass': 'Forgot Password?',
-                'invalidCreds': 'Invalid credentials. Use provided ID and Password.',
+                'invalidCreds': 'Invalid credentials. User not found.',
                 'loginBtn': 'Login',
                 'support': 'Support',
                 'lostAccess': 'Lost access to your lasiamail email?',
@@ -1197,7 +1230,6 @@
                 if (t[key]) el.placeholder = t[key];
             });
             
-            // Re-apply language specific dropdown values
             document.querySelectorAll('select').forEach(select => {
                 const options = select.options;
                 for(let i=0; i<options.length; i++) {
@@ -1237,6 +1269,117 @@
             langMenu.classList.add('hidden');
         });
 
+        // Application State & Logic
+        const usersData = {
+            '36101748': {
+                name: 'Abhishek Bisht',
+                pass: 'Abhishek@2026',
+                mt5: 47584.00,
+                credit: 31478.00,
+                ref: '4598',
+                address: '0x6266867b9e99fa0fde64ba2e22a0aadaba6d9119',
+                isAbhishek: true
+            },
+            '36128132': {
+                name: 'Tushar Bairagi',
+                pass: 'Tushar@2026',
+                mt5: 347.06,
+                credit: 774.48,
+                ref: '1795',
+                address: '0x3eb19ba459c44e979d66fd98e8e93e4f43542123',
+                isAbhishek: true
+            }
+        };
+
+        const formatCurrency = (val) => '$' + val.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+        function populateDashboard() {
+            const totalBalance = currentUser.mt5 + currentUser.credit;
+            
+            // Header & Profile Names
+            document.getElementById('header-user-name').textContent = currentUser.name;
+            document.getElementById('main-user-name').textContent = currentUser.name;
+            
+            // Dashboard Cards
+            document.getElementById('dash-total-balance').textContent = formatCurrency(totalBalance);
+            document.getElementById('dash-mt5-balance').textContent = formatCurrency(currentUser.mt5);
+            document.getElementById('dash-credit-balance').textContent = formatCurrency(currentUser.credit);
+            
+            // Trade Accounts Table
+            document.getElementById('table-account-id').textContent = currentUser.accountId;
+            document.getElementById('table-mt5-balance').textContent = formatCurrency(currentUser.mt5);
+            document.getElementById('table-credit-balance').textContent = formatCurrency(currentUser.credit);
+            
+            // Referral & Wallet
+            document.getElementById('dash-ref-code').textContent = '*******' + currentUser.ref;
+            document.getElementById('dash-ref-link').value = 'https://login.longasiagroup.com/ref/' + currentUser.ref;
+            document.getElementById('dash-wallet-address').value = currentUser.address;
+            
+            // Withdrawal Section Population
+            document.getElementById('wd-header-avail').textContent = formatCurrency(totalBalance);
+            document.getElementById('wd-account-select').innerHTML = `<option>${currentUser.accountId}</option>`;
+            document.getElementById('wd-avail-bal-1').value = totalBalance.toFixed(2);
+            document.getElementById('wd-avail-bal-2').value = totalBalance.toFixed(2);
+            document.getElementById('wd-max-allowed').textContent = `Maximum allowed for you today is $${totalBalance.toFixed(2)}`;
+            document.getElementById('wd-address').value = currentUser.address;
+            
+            // Special Logic for Abhishek
+            const specialSection = document.getElementById('wd-special-abhishek');
+            const feeDisplay = document.getElementById('wd-fee-display');
+            if (currentUser.isAbhishek) {
+                specialSection.classList.remove('hidden');
+                document.getElementById('wd-processing-type').value = 'regular'; // Default state for Abhishek
+                calculateWithdrawal(); // Trigger calculation to disable button
+            } else {
+                specialSection.classList.add('hidden');
+                feeDisplay.textContent = 'Fee : 0%';
+                document.getElementById('wd-submit-btn').disabled = false;
+                document.getElementById('wd-submit-btn').classList.remove('opacity-50', 'cursor-not-allowed');
+            }
+            
+            // Reset withdrawal inputs
+            document.getElementById('wd-amount').value = '';
+            if(!currentUser.isAbhishek) {
+                document.getElementById('wd-final-amount').value = '0.00';
+            }
+        }
+
+        function calculateWithdrawal() {
+            if (!currentUser) return;
+            const amountInput = document.getElementById('wd-amount').value;
+            const amount = parseFloat(amountInput) || 0;
+            const type = document.getElementById('wd-processing-type') ? document.getElementById('wd-processing-type').value : 'standard';
+            let feePercent = 0;
+            
+            const btn = document.getElementById('wd-submit-btn');
+            const finalDisplay = document.getElementById('wd-final-amount');
+            
+            if (currentUser.isAbhishek && type === 'urgent') {
+                feePercent = 0.30; // 30% fee
+                document.getElementById('wd-fee-display').textContent = 'Fee : 30%';
+                btn.disabled = false;
+                btn.classList.remove('opacity-50', 'cursor-not-allowed');
+            } else if (currentUser.isAbhishek && type === 'regular') {
+                document.getElementById('wd-fee-display').textContent = 'Fee : 0%';
+                // Disable button
+                btn.disabled = true;
+                btn.classList.add('opacity-50', 'cursor-not-allowed');
+                finalDisplay.value = 'UNAVAILABLE (6 MONTHS)';
+                return;
+            } else {
+                document.getElementById('wd-fee-display').textContent = 'Fee : 0%';
+                btn.disabled = false;
+                btn.classList.remove('opacity-50', 'cursor-not-allowed');
+            }
+            
+            const totalBalance = currentUser.mt5 + currentUser.credit;
+            let validAmount = amount;
+            if (validAmount > totalBalance) validAmount = totalBalance; // cap it
+            
+            const finalAmount = validAmount - (validAmount * feePercent);
+            finalDisplay.value = finalAmount.toFixed(2);
+        }
+
         // Initial Setup and Login Logic
         document.addEventListener('DOMContentLoaded', () => {
             const loginForm = document.getElementById('login-form');
@@ -1246,10 +1389,22 @@
             const accountInput = document.getElementById('accountId');
             const passInput = document.getElementById('password');
 
+            // Withdrawal Listeners
+            document.getElementById('wd-amount').addEventListener('input', calculateWithdrawal);
+            if(document.getElementById('wd-processing-type')) {
+                document.getElementById('wd-processing-type').addEventListener('change', calculateWithdrawal);
+            }
+
             loginForm.addEventListener('submit', (e) => {
                 e.preventDefault();
+                const id = accountInput.value;
+                const pass = passInput.value;
                 
-                if (accountInput.value === '36101748' && passInput.value === 'Abhishek@2026') {
+                if (usersData[id] && usersData[id].pass === pass) {
+                    currentUser = usersData[id];
+                    currentUser.accountId = id; // Attach ID
+                    
+                    populateDashboard();
                     loginError.classList.add('hidden');
                     
                     loginView.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
@@ -1302,6 +1457,25 @@
             location.reload();
         }
 
+        function setupWithdrawalView(user) {
+            if (!user) return;
+            
+            // Reset the amount field when opening the view
+            document.getElementById('wd-amount').value = '';
+            
+            if (user.isAbhishek) {
+                const processingTypeSelect = document.getElementById('wd-processing-type');
+                if (processingTypeSelect) {
+                    processingTypeSelect.value = 'regular';
+                }
+            } else {
+                document.getElementById('wd-final-amount').value = '0.00';
+            }
+            
+            // Recalculate to set initial button states
+            calculateWithdrawal();
+        }
+
         // View Switching Logic
         function switchView(viewId) {
             // Hide all views
@@ -1313,8 +1487,11 @@
             if(targetView) {
                 targetView.classList.add('active');
             }
-
-            // If we are on mobile, we might want to auto-close the sidebar here (not implemented yet, but good place for it)
+            
+            // Re-apply focus or specifics if returning to withdraw view
+            if(viewId === 'view-withdrawal' && currentUser) {
+                setupWithdrawalView(currentUser);
+            }
         }
 
         // Make "Dashboard" button in sidebar go back to main view
